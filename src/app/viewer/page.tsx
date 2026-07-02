@@ -11,6 +11,7 @@ export default function ViewerPage() {
   const router = useRouter()
   const [file, setFile] = useState<{ name: string; content: string } | null>(null)
   const [fontSize, setFontSize] = useState<FontSize>('md')
+  const [showLineNumbers, setShowLineNumbers] = useState(true)
 
   useEffect(() => {
     const stored = getStoredFile()
@@ -19,8 +20,10 @@ export default function ViewerPage() {
       return
     }
     setFile(stored)
+    // Always read fresh settings
     const settings = getSettings()
     setFontSize(settings.fontSize)
+    setShowLineNumbers(settings.showLineNumbers)
   }, [router])
 
   const handleShare = async () => {
@@ -34,14 +37,16 @@ export default function ViewerPage() {
 
   if (!file) {
     return (
-      <div className="flex-1 flex items-center justify-center">
-        <span className="font-mono text-[12px] text-[#444] tracking-widest">LOADING...</span>
+      <div className="flex-1 flex items-center justify-center h-screen bg-black">
+        <span className="font-mono text-[12px] text-[#444] tracking-widest animate-pulse">
+          LOADING...
+        </span>
       </div>
     )
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-black relative">
+    <div className="flex flex-col h-screen bg-black overflow-hidden relative">
       {/* Viewer header */}
       <header className="flex items-center gap-3 px-5 py-4 border-b border-[#1a1a1a] flex-shrink-0">
         <button
@@ -57,7 +62,6 @@ export default function ViewerPage() {
         <span className="flex-1 font-mono text-[13px] text-white truncate">{file.name}</span>
 
         <div className="flex gap-2">
-          {/* Share */}
           <button
             onClick={handleShare}
             className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center hover:border-[#444] transition-colors"
@@ -71,22 +75,29 @@ export default function ViewerPage() {
               <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
             </svg>
           </button>
-
           <button
             className="w-8 h-8 border border-[#2a2a2a] flex items-center justify-center hover:border-[#444] transition-colors"
             aria-label="More options"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4 text-[#888]">
-              <circle cx="12" cy="12" r="1" /><circle cx="19" cy="12" r="1" /><circle cx="5" cy="12" r="1" />
+              <circle cx="12" cy="12" r="1" />
+              <circle cx="19" cy="12" r="1" />
+              <circle cx="5" cy="12" r="1" />
             </svg>
           </button>
         </div>
       </header>
 
-      {/* Markdown content */}
-      <MarkdownRenderer content={file.content} fontSize={fontSize} />
+      {/* Markdown content — scrollable */}
+      <div className="flex-1 overflow-y-auto">
+        <MarkdownRenderer
+          content={file.content}
+          fontSize={fontSize}
+          showLineNumbers={showLineNumbers}
+        />
+      </div>
 
-      {/* FAB - future edit mode */}
+      {/* FAB */}
       <button
         className="absolute bottom-20 right-5 w-11 h-11 bg-white flex items-center justify-center shadow-lg hover:bg-[#e0e0e0] transition-colors"
         aria-label="Edit file"

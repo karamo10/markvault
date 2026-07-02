@@ -12,16 +12,25 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html, body {
+html,
+body {
   background: #000;
   color: #fff;
   overscroll-behavior: none;
 }
 
 /* Scrollbar — hide on mobile, minimal on desktop */
-::-webkit-scrollbar { width: 2px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: #2a2a2a; }
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
 
 /* ── Markdown content styles ── */
 .mv-markdown h1 {
@@ -195,7 +204,9 @@ html, body {
   border-bottom: 1px solid #111;
 }
 
-.mv-markdown tbody tr td:first-child { color: #ccc; }
+.mv-markdown tbody tr td:first-child {
+  color: #ccc;
+}
 
 .mv-markdown hr {
   border: none;
@@ -205,19 +216,102 @@ html, body {
 
 /* Font size variants */
 .mv-markdown.text-sm p,
-.mv-markdown.text-sm li { font-size: 0.8rem; }
+.mv-markdown.text-sm li {
+  font-size: 0.8rem;
+}
 
 .mv-markdown.text-md p,
-.mv-markdown.text-md li { font-size: 0.875rem; }
+.mv-markdown.text-md li {
+  font-size: 0.875rem;
+}
 
 .mv-markdown.text-lg p,
-.mv-markdown.text-lg li { font-size: 1rem; }
+.mv-markdown.text-lg li {
+  font-size: 1rem;
+}
 
 /* Highlight.js theme override — monochrome */
-.hljs { background: transparent !important; color: #ccc !important; }
-.hljs-keyword, .hljs-selector-tag { color: #fff; font-weight: 600; }
-.hljs-string, .hljs-attr { color: #888; }
-.hljs-comment { color: #444; font-style: italic; }
-.hljs-number, .hljs-literal { color: #aaa; }
-.hljs-built_in, .hljs-name { color: #ccc; }
-.hljs-title, .hljs-function { color: #ddd; font-style: italic; }
+.hljs {
+  background: transparent !important;
+  color: #ccc !important;
+}
+
+.hljs-keyword,
+.hljs-selector-tag {
+  color: #fff;
+  font-weight: 600;
+}
+
+.hljs-string,
+.hljs-attr {
+  color: #888;
+}
+
+.hljs-comment {
+  color: #444;
+  font-style: italic;
+}
+
+.hljs-number,
+.hljs-literal {
+  color: #aaa;
+}
+
+.hljs-built_in,
+.hljs-name {
+  color: #ccc;
+}
+
+.hljs-title,
+.hljs-function {
+  color: #ddd;
+  font-style: italic;
+}
+
+/* ── Splash screen loading bar animation ── */
+@keyframes splash-load {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+/* ── Line numbers in code blocks ── */
+.mv-markdown.show-line-numbers pre {
+  counter-reset: line;
+  padding-left: 52px;
+  position: relative;
+}
+
+.mv-markdown.show-line-numbers pre code {
+  display: block;
+}
+
+.mv-markdown.show-line-numbers pre code>span,
+.mv-markdown.show-line-numbers pre code .hljs-ln-line {
+  display: block;
+  counter-increment: line;
+  position: relative;
+}
+
+.mv-markdown.show-line-numbers pre code>span::before,
+.mv-markdown.show-line-numbers pre code .hljs-ln-line::before {
+  content: counter(line);
+  position: absolute;
+  left: -40px;
+  width: 28px;
+  text-align: right;
+  color: #2a2a2a;
+  font-size: 0.7rem;
+  user-select: none;
+  font-family: var(--font-mono);
+}
+
+/* ── Dynamic font size via CSS variable ── */
+.mv-markdown p,
+.mv-markdown li {
+  font-size: var(--mv-font-size, 15px);
+}

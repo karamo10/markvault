@@ -7,6 +7,7 @@ import { FontSize } from '@/types'
 interface Props {
   content: string
   fontSize?: FontSize
+  showLineNumbers?: boolean
 }
 
 const fontSizeClass: Record<FontSize, string> = {
@@ -15,9 +16,17 @@ const fontSizeClass: Record<FontSize, string> = {
   lg: 'text-lg',
 }
 
-export default function MarkdownRenderer({ content, fontSize = 'md' }: Props) {
+export default function MarkdownRenderer({
+  content,
+  fontSize = 'md',
+  showLineNumbers = true,
+}: Props) {
   return (
-    <div className={`mv-markdown ${fontSizeClass[fontSize]} px-5 py-6 flex-1 overflow-y-auto`}>
+    <div
+      className={`mv-markdown ${fontSizeClass[fontSize]} ${
+        showLineNumbers ? 'show-line-numbers' : ''
+      } px-5 py-6`}
+    >
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeHighlight]}
