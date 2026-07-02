@@ -1,0 +1,223 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-sans: 'IBM Plex Sans', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  background: #000;
+  color: #fff;
+  overscroll-behavior: none;
+}
+
+/* Scrollbar — hide on mobile, minimal on desktop */
+::-webkit-scrollbar { width: 2px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; }
+
+/* ── Markdown content styles ── */
+.mv-markdown h1 {
+  font-family: var(--font-sans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.25;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.mv-markdown h2 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.mv-markdown h3 {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ccc;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.mv-markdown p {
+  font-family: var(--font-sans);
+  color: #aaa;
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.mv-markdown p strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+.mv-markdown p em {
+  color: #ccc;
+  font-style: italic;
+}
+
+.mv-markdown a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: #444;
+}
+
+.mv-markdown ul {
+  margin-bottom: 12px;
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mv-markdown ul li {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #aaa;
+  font-weight: 300;
+  line-height: 1.6;
+  padding-left: 20px;
+  position: relative;
+}
+
+.mv-markdown ul li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #333;
+  font-family: var(--font-mono);
+}
+
+.mv-markdown ol {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mv-markdown ol li {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: #aaa;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Checkboxes (GFM task lists) */
+.mv-markdown input[type="checkbox"] {
+  accent-color: #fff;
+  margin-right: 8px;
+}
+
+.mv-markdown code {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: #0d0d0d;
+  border: 1px solid #1e1e1e;
+  padding: 1px 6px;
+  color: #ccc;
+}
+
+.mv-markdown pre {
+  background: #0d0d0d !important;
+  border: 1px solid #1e1e1e;
+  border-left: 2px solid #fff;
+  padding: 14px 16px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.mv-markdown pre code {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #ccc;
+  line-height: 1.75;
+}
+
+.mv-markdown blockquote {
+  border-left: 2px solid #333;
+  margin-left: 0;
+  padding-left: 16px;
+  margin-bottom: 12px;
+}
+
+.mv-markdown blockquote p {
+  color: #666;
+  font-style: italic;
+}
+
+.mv-markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  overflow-x: auto;
+  display: block;
+}
+
+.mv-markdown thead th {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: #555;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 8px 12px 8px 0;
+  border-bottom: 1px solid #222;
+  font-weight: 400;
+}
+
+.mv-markdown tbody td {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: #888;
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid #111;
+}
+
+.mv-markdown tbody tr td:first-child { color: #ccc; }
+
+.mv-markdown hr {
+  border: none;
+  border-top: 1px solid #1a1a1a;
+  margin: 20px 0;
+}
+
+/* Font size variants */
+.mv-markdown.text-sm p,
+.mv-markdown.text-sm li { font-size: 0.8rem; }
+
+.mv-markdown.text-md p,
+.mv-markdown.text-md li { font-size: 0.875rem; }
+
+.mv-markdown.text-lg p,
+.mv-markdown.text-lg li { font-size: 1rem; }
+
+/* Highlight.js theme override — monochrome */
+.hljs { background: transparent !important; color: #ccc !important; }
+.hljs-keyword, .hljs-selector-tag { color: #fff; font-weight: 600; }
+.hljs-string, .hljs-attr { color: #888; }
+.hljs-comment { color: #444; font-style: italic; }
+.hljs-number, .hljs-literal { color: #aaa; }
+.hljs-built_in, .hljs-name { color: #ccc; }
+.hljs-title, .hljs-function { color: #ddd; font-style: italic; }
