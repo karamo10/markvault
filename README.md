@@ -123,11 +123,11 @@ markvault/
 
 ## License
 
-MIT © 2025 [Csaydimba](https://csaydimba.com)
+MIT © 2025 [Csaydimba]([https://csaydimba.com](https://x.com/Csaydimba))
 
 ---
 
 ## Author
 
 Built by **Karamo** · Csaydimba  
-[@devcamz](https://instagram.com/devcamz) · [csaydimba.com](https://csaydimba.com)
+[@devcamz](https://instagram.com/dev.camz) · [csaydimba.com](https://x.com/Csaydimba)
