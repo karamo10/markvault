@@ -123,8 +123,7 @@ markvault/
 
 ## License
 
-MIT © 2025 [Csaydimba]([https://csaydimba.com](https://x.com/Csaydimba))
-
+MIT © 2025 
 ---
 
 ## Author
