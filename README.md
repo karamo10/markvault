@@ -1,6 +1,6 @@
 # MarkVault
 
-> A minimal, fast Markdown reader PWA for Android — built by [Csaydimba](https://x.com/Csaydimba)
+> A minimal, fast Markdown reader PWA for Android
 
 ![MarkVault](public/og.png)
 
