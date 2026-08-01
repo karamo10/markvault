@@ -8,7 +8,7 @@
 
 MarkVault is a Progressive Web App (PWA) that lets you open, read, and browse `.md` files directly from your Android device. No sync. No cloud. Just your files, beautifully rendered.
 
-Built with a strict **black & white** design system — sharp edges, monospace type, zero distractions. A serious tool for developers and writers.
+Built with a strict **black & white** design system  sharp edges, monospace type, zero distractions. A serious tool for developers and writers.
 
 ---
 
@@ -30,13 +30,13 @@ Built with a strict **black & white** design system — sharp edges, monospace t
 ## Features
 
 - Open `.md`, `.mdx`, `.markdown` files from your phone storage
-- Full GFM rendering — tables, checkboxes, code blocks, strikethrough
+- Full GFM rendering tables, checkboxes, code blocks, strikethrough
 - Syntax highlighting in code blocks
 - Recent files history (persisted in localStorage)
-- Installable as a PWA — add to Android home screen
+- Installable as a PWA  add to Android home screen
 - Offline support via service worker
 - Font size control (S / M / L)
-- Pure dark mode — `#000000` black background
+- Pure dark mode  `#000000` black background
 
 ---
 
@@ -89,7 +89,7 @@ markvault/
 ├── src/
 │   ├── app/
 │   │   ├── layout.tsx         # Root layout + fonts
-│   │   ├── page.tsx           # Home — file picker + recent files
+│   │   ├── page.tsx           # Home file picker + recent files
 │   │   ├── viewer/
 │   │   │   └── page.tsx       # Markdown viewer screen
 │   │   └── settings/
@@ -129,5 +129,4 @@ MIT © 2025 [Csaydimba]([https://csaydimba.com](https://x.com/Csaydimba))
 
 ## Author
 
-Built by **Karamo** · Csaydimba  
-[@devcamz](https://instagram.com/dev.camz) · [csaydimba.com](https://x.com/Csaydimba)
+Built by **Karamo10** · [@devcamz](https://instagram.com/dev.camz)
